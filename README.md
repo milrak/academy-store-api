@@ -10,8 +10,8 @@ Uma RESTFul API simples em Node JS, criada por [Luiz Franco](https://github.com/
 1) Para executar, estando no diretório do projeto, abra o console: 
 `npm start`
 
-3) Para testar as requisições, utilize o software de sua preferência ([Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop), por exemplo) e acesse:
-`http://localhost:8080`
+3) Para testar as requisições, utilize o software de sua preferência ([Postman](https://www.getpostman.com/), por exemplo) e acesse:
+`http://localhost:8080/produto`
 
 ## Exemplo de requisição (POST):
 
