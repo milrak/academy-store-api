@@ -19,6 +19,7 @@ const MSG_NAO_ENCONTADO = "{'message': 'Nenhum produto encontrado'}";
 
 // GET ALL
 app.get('/produto', (req, res) => {
+    res.set('Content-Type', 'application/json');
     db.find({}).then(produto => {
         if (!produto || !produto.length) {
             res.status(404).send(MSG_NAO_ENCONTADO);
@@ -30,6 +31,7 @@ app.get('/produto', (req, res) => {
 
 // GET ONE
 app.get('/produto/:id', (req, res) => {
+    res.set('Content-Type', 'application/json');
     db.find({ _id: req.params.id }).then(produto => {
         if (!produto || !produto.length) {
             res.status(404).send(MSG_NAO_ENCONTADO);
@@ -41,6 +43,7 @@ app.get('/produto/:id', (req, res) => {
 
 // INSERT
 app.post('/produto', (req, res) => {
+    res.set('Content-Type', 'application/json');
     if (ValidacaoUtils.isProdutoValido(req.body)) {
         db.insert(ValidacaoUtils.getCamposValidos(req.body)).then(() => {
             res.send(MSG_OK);
@@ -52,6 +55,7 @@ app.post('/produto', (req, res) => {
 
 // UPDATE
 app.put('/produto/:id', (req, res) => {
+    res.set('Content-Type', 'application/json');
     if (ValidacaoUtils.isProdutoValido(req.body)) {
         db.update({ _id: req.params.id }, ValidacaoUtils.getCamposValidos(req.body)).then(() => {
             res.send(MSG_OK);
@@ -63,6 +67,7 @@ app.put('/produto/:id', (req, res) => {
 
 // DELETE
 app.delete('/produto/:id', (req, res) => {
+    res.set('Content-Type', 'application/json');
     db.remove({ _id: req.params.id }).then(() => {
         res.send(MSG_OK);
     }).catch(() => res.status(500).end());
